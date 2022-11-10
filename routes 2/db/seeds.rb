@@ -31,3 +31,8 @@ Comment.create(artwork_id: 1, author_id: 2, body:"cowabunga!").save!
 Comment.create(artwork_id: 2, author_id: 3, body:"wow!").save!
 Comment.create(artwork_id: 3, author_id: 4, body:"so cool!").save!
 Comment.create(artwork_id: 4, author_id: 5, body:"neato!").save!
+
+Like.create(liker_id:1, likeable_type: :Comment, likeable_id:1)
+Like.create(liker_id:2, likeable_type: :Comment, likeable_id:2)
+Like.create(liker_id:3, likeable_type: :Artwork, likeable_id:1)
+Like.create(liker_id:4, likeable_type: :Artwork, likeable_id:2)

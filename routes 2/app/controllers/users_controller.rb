@@ -1,4 +1,26 @@
 class UsersController < ApplicationController
+
+
+    def my_faves_created
+        #take in params
+        #return all of my objects
+        user = User.find(params[:id]
+        art_collection = user.my_favorites #association method
+        render json: art_collection
+
+
+        #additional column in artworks -> #artist's favoriting their own
+        #additional column in artwork_shares -> #people favoriting any other art
+
+    end
+
+    def my_mostfave_created
+        #take in params
+        #return all of my objects
+        
+    end
+
+
     def index
         if request.query_string.present?
             user = User.find_by(username:params[:user][:username]) 

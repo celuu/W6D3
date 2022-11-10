@@ -16,6 +16,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :update, :destroy, :create] do
     resources :artworks, only: [:index]
+
+    member do
+      get "my_mostfave_created"
+    end
+
+    collection do
+      get "my_faves_created"
+    end
   end
 
   resources :comments, only: [:create, :destroy, :index]
