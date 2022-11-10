@@ -1,20 +1,18 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: artworks
 #
 #  id         :bigint           not null, primary key
-#  username   :string           not null
+#  title      :string           not null
+#  image_url  :string           not null
+#  artist_id  :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class User < ApplicationRecord
-    validates :name, :email, presence: true
-
-    has_many :artworks,
+class Artwork < ApplicationRecord
+    belongs_to :artist,
         primary_key: :id,
         foreign_key: :artist_id,
-        class_name: :Artwork,
-        dependent: :destroy
-
+        class_name: :User
     
 end
