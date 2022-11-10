@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
     def index
-        render json: User.all
+        if request.query_string.present?
+            user = User.find_by(username:params[:user][:username]) 
+                if user == nil 
+                    render json: "There is no spoon"
+                    return
+                end
+            render json: user    
+        else
+            users = User.all
+            render json: users
+        end
     end
 
     def create
