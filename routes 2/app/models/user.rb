@@ -8,9 +8,8 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-    validates :name, :email, presence: true
+    validates :username, presence: true
 
-    #uniqueness? group validations
 
     has_many :artworks,
         primary_key: :id,

@@ -11,8 +11,7 @@
 #
 class Artwork < ApplicationRecord
     validates :image_url, :artist_id, presence: true
-
-    #uniqueness? group validations
+    validates :artist_id, uniqueness: { scope: :title }
 
     belongs_to :artist,
         primary_key: :id,
