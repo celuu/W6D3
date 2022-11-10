@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = user.find_by(id:params[:id])
+        user = User.find_by(id:params[:id])
         if user.update(user_params)
             redirect_to user_url(user.id)
         else
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
         temp = user
         user.destroy
         render json: temp
+        # redirect_to user_url
     end
 
     private

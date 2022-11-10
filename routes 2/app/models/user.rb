@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
     has_many :viewables,
         foreign_key: :viewer_id,
-        class_name: :User,
+        class_name: :ArtworkShare,
         dependent: :destroy
 
     has_many :shared_artworks,

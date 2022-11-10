@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+ActiveRecord::Base.connection.reset_pk_sequence!(:users)
+ActiveRecord::Base.connection.reset_pk_sequence!(:artworks)
+ActiveRecord::Base.connection.reset_pk_sequence!(:artwork_shares)
+
 User.create(username: "Picasso").save!
 User.create(username: "Donatello").save!
 User.create(username: "Michealangelo").save!
