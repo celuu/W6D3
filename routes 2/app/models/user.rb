@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
     has_many :comments,
         foreign_key: :author_id,
-        class_name: :User,
+        class_name: :Comment,
         dependent: :destroy
 
     has_many :viewables,
@@ -30,7 +30,6 @@ class User < ApplicationRecord
     has_many :shared_artworks,
         through: :viewables,
         source: :artwork
-        
-
+    
     
 end
