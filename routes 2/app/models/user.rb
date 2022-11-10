@@ -17,6 +17,11 @@ class User < ApplicationRecord
         class_name: :Artwork,
         dependent: :destroy
 
+    has_many :comments,
+        foreign_key: :author_id,
+        class_name: :User,
+        dependent: :destroy
+
     has_many :viewables,
         foreign_key: :viewer_id,
         class_name: :ArtworkShare,

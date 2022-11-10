@@ -26,3 +26,8 @@ ArtworkShare.create(artwork_id: 1, viewer_id: 2).save!
 ArtworkShare.create(artwork_id: 2, viewer_id: 3).save!
 ArtworkShare.create(artwork_id: 3, viewer_id: 4).save!
 ArtworkShare.create(artwork_id: 4, viewer_id: 5).save!
+
+Comment.create(artwork_id: 1, author_id: 2, body:"cowabunga!").save!
+Comment.create(artwork_id: 2, author_id: 3, body:"wow!").save!
+Comment.create(artwork_id: 3, author_id: 4, body:"so cool!").save!
+Comment.create(artwork_id: 4, author_id: 5, body:"neato!").save!
