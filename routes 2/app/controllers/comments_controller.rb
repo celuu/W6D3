@@ -1,12 +1,20 @@
 class CommentsController < ApplicationController
 
     def index
-        if params[:comment][:author_id]
-            comment = Comment.find_by(author_id:(params[:author_id]))
-            render json: comment
-        elsif params[:artwork_id]
-            comment = Comment.find_by(artwork_id:(params[:artwork_id]))
-            render json: comment
+        author = User.find_by(id:params[:comment][:author_id])
+        artwork = Artwork.find_by(id:params[:comment][:artwork_id])
+
+        if author == nil && artwork == nil
+            render json: "There is no spoon"
+            return
+        end
+
+        if author
+            comments = author.comments
+            render json: comments
+        elsif artwork
+            comments = artwork.comments
+            render json: comments   
         end
     end
 
